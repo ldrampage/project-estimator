@@ -9,16 +9,19 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.lxbordo.api.dto.Employee;
 import com.lxbordo.api.dto.EmployeeState;
 import com.lxbordo.api.dto.ProjectRequest;
+import com.lxbordo.api.dto.ProjectResponse;
+import com.lxbordo.api.dto.Response;
 
 @Service
 public class ProjectEstimatorService {
 
-    public LocalDate calculateEndDate(ProjectRequest request) {
+    public Response<ProjectResponse> calculateEndDate(ProjectRequest request) {
 
         LocalDate currentDate = request.getProjectStartDt();
         double remainingWork = request.getEstimatedWorkHours();
@@ -69,8 +72,16 @@ public class ProjectEstimatorService {
 
             currentDate = currentDate.plusDays(1);
         }
-
-        return currentDate;
+        
+        ProjectResponse projectResponse = new ProjectResponse();
+        projectResponse.setProjectEndDate(currentDate);
+        
+        return Response.<ProjectResponse>builder()
+        		.statusCode(HttpStatus.OK.value())
+        		.message("End Date Generated Successfully.")
+        		.data(projectResponse)
+        		.build();
+   
     }
 
     private boolean isWeekend(LocalDate date) {
