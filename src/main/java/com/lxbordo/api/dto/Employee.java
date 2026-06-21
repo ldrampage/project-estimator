@@ -10,10 +10,12 @@ import lombok.Data;
 public class Employee {
 
     private String name;
-    private List<LocalDate> vls = null;
-    
+    private String workDescription;
     @NotBlank(message="workHours is required")
     @NotNull(message="workHours is required")
     private double workHours;
+    private double totalWorkHours;
+    private List<LocalDate> vls;
+    
     
 }

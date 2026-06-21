@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class EmployeeState {
 
+	double totalWorkHours = 0;
     double workHours;
     Set<LocalDate> vlSet;
 
