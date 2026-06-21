@@ -13,7 +13,7 @@ public class ProjectResponse {
 	
 	private LocalDate startDt;
 	private double estimatedWorkHours;
-	private double resourceAllocatedHours;
+	//private double resourceAllocatedHours;
 	private LocalDate estimatedEndDate;
 	private String estimatedWorkingDays;
 	private List<WorkSummary> workSumList;

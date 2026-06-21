@@ -76,7 +76,7 @@ public class ProjectEstimatorService {
 		ProjectResponse projectResponse = new ProjectResponse();
 		projectResponse.setStartDt(request.getProjectStartDt());
 		projectResponse.setEstimatedWorkHours(request.getEstimatedWorkHours());
-		projectResponse.setResourceAllocatedHours(request.getEstimatedWorkHours() + Math.abs(remainingWork));
+		//projectResponse.setResourceAllocatedHours(request.getEstimatedWorkHours() + Math.abs(remainingWork));
 		projectResponse.setEstimatedEndDate(startDt.minusDays(1));
 		projectResponse
 				.setEstimatedWorkingDays(String.valueOf(workingDays) + " days and " + remainingEffort + " hours.");
