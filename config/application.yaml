@@ -1,0 +1,30 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: project-estimator
+  profiles:
+    active: develop
+
+---
+spring:
+  config:
+    activate:
+       on-profile: develop
+logging:
+  level:
+    com.lxbordo.api: DEBUG
+    root: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+logging:
+  level:
+    com.lxbordo.api: INFO
+    root: INFO
+
+
